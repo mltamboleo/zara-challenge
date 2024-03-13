@@ -167,7 +167,7 @@ Esta página de detalle es accesible directamente siempre que se adjunte una ID 
 
 http://localhost:3000/details/1010370
 
-En caso de no hacerlo, se nos redirigirá automáticamente a la página inicial.
+En caso de no hacerlo, se nos redirigirá automáticamente a la página inicial (ejemplo):
 
 http://localhost:3000/details/123456
 
