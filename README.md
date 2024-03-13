@@ -52,7 +52,7 @@ npm run lint
 ## Tests
 
 ```bash
-npm run tests
+npm run test
 ```
 
 ## Estructura
