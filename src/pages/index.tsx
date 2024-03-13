@@ -1,30 +1,30 @@
-import axios from 'axios';
-import { useContext, useState, useEffect, SetStateAction } from 'react';
-import { FavsContext } from '../app/Context';
-import Image from "next/image";
-import Link from 'next/link';
-import FavButton from '../app/components/favButton/index';
-import { characterApiDataItem } from '../app/types';
-import { characterItem } from '../domain/characterItem';
+import axios from 'axios'
+import { useContext, useState, useEffect, SetStateAction } from 'react'
+import Image from "next/image"
+import Link from 'next/link'
+import { FavsContext } from '../app/Context'
+import FavButton from '../app/components/favButton/index'
+import { characterApiDataItem } from '../app/types'
+import { characterItem } from '../domain/characterItem'
 
-import '../app/styles/index.scss';
+import '../app/styles/index.scss'
 
 export default function CharactersList() {
-  const [data, setData] = useState<characterItem[]>([]);
-  const [allData, setAllData] = useState<characterItem[]>([]);
+  const [data, setData] = useState<characterItem[]>([])
+  const [allData, setAllData] = useState<characterItem[]>([])
   const [loading, setLoading] = useState(true);
-  const [searchText, setSearchText] = useState("");
-  const limit = 50;
-  const [results, setResults] = useState(0);
-  const { favs, favsFilter } = useContext(FavsContext);
+  const [searchText, setSearchText] = useState("")
+  const limit = 50
+  const [results, setResults] = useState(0)
+  const { favs, favsFilter } = useContext(FavsContext)
 
   useEffect(() =>  {
-    getCharactersList();
+    getCharactersList()
   }, []);
 
   useEffect(() => {
     setData(allData);
-    favsFilter ? filterFavoritesList() : filterCharactersList();
+    favsFilter ? filterFavoritesList() : filterCharactersList()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allData, favsFilter, searchText]);
 
@@ -33,7 +33,7 @@ export default function CharactersList() {
     .get(`api/getCharacters?limit=${limit}`)
     .then((response) => {
       const responseData = response.data.data;
-      const items: SetStateAction<characterItem[]> = [];
+      const items: SetStateAction<characterItem[]> = []
 
       responseData.map((data: characterApiDataItem) => {
         items.push(
@@ -45,35 +45,35 @@ export default function CharactersList() {
         );
       });
 
-      setAllData(items);
-      setResults(items.length);
-      setLoading(false);
+      setAllData(items)
+      setResults(items.length)
+      setLoading(false)
     })
   }
 
   const filterCharactersList = () => {
-    const filteredData: characterItem[] = allData.filter((character) => character.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1);
+    const filteredData: characterItem[] = allData.filter((character) => character.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1)
 
-    setData(filteredData);
+    setData(filteredData)
     setResults(filteredData.length)
   }
 
   const filterFavoritesList = () => {
-    const filteredData: characterItem[] = [];
+    const filteredData: characterItem[] = []
 
     for (const index in favs) {
-      let favCharacter: characterItem | undefined;
+      let favCharacter: characterItem | undefined
 
-      favCharacter = allData.find((character: characterItem) => (character.id === favs[index]));
+      favCharacter = allData.find((character: characterItem) => (character.id === favs[index]))
       if (favCharacter) {
         if (searchText > "" && !(favCharacter.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1)) {
           continue;
         }
-        filteredData.push(favCharacter);
+        filteredData.push(favCharacter)
       }
     }
 
-    setData(filteredData);
+    setData(filteredData)
     setResults(filteredData.length)
   }
 
@@ -94,7 +94,7 @@ export default function CharactersList() {
           onChange={e => setSearchText(e.target.value)}
         />
         <p className="home__search-results-label">
-          {results} {results > 1 ? 'results' : 'result '}
+          {results} {results !== 1 ? 'results' : 'result'}
         </p>
       </div>
       {loading ? (
@@ -114,7 +114,7 @@ export default function CharactersList() {
               >
                 <Image
                   className="home__character-image"
-                  src={`${item.thumbnail}`}
+                  src={item.thumbnail}
                   alt={item.name}
                   width={172}
                   height={190}

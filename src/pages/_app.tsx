@@ -1,13 +1,13 @@
-import type { AppProps } from 'next/app';
-import { useState } from 'react';
-import Header from '@/app/components/header/index';
-import { FavsContext } from '@/app/Context';
+import type { AppProps } from 'next/app'
+import { useState } from 'react'
+import { FavsContext } from '@/app/Context'
+import Header from '@/app/components/header/index'
 
-import '@/app/main.scss';
+import '@/app/main.scss'
 
 export default function MarvelApp({ Component, pageProps }: AppProps) {
-  const [favs, setFavs] = useState<number[]>([]);
-  const [favsFilter, setFavsFilter] = useState(false);
+  const [favs, setFavs] = useState<number[]>([])
+  const [favsFilter, setFavsFilter] = useState(false)
 
   return (
     <>

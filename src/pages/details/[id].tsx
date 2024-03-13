@@ -1,50 +1,50 @@
-import axios from 'axios';
-import { useState, useEffect, SetStateAction } from 'react';
-import Image from "next/image";
-import { useRouter } from 'next/router';
-import { characterApiDataItem, comicApiDataItem } from '../../app/types';
-import { characterItem } from '../../domain/characterItem';
-import { comicItem } from '../../domain/comicItem';
-import FavButton from '../../app/components/favButton/index';
+import axios from 'axios'
+import { useState, useEffect, SetStateAction } from 'react'
+import { useRouter } from 'next/router'
+import Image from "next/image"
+import { characterApiDataItem, comicApiDataItem } from '../../app/types'
+import { characterItem } from '../../domain/characterItem'
+import { comicItem } from '../../domain/comicItem'
+import FavButton from '../../app/components/favButton/index'
 
-import '../../app/styles/details.scss';
+import '../../app/styles/details.scss'
 
 export default function CharacterDetails() {
-  const [characterData, setCharacterData] = useState<characterItem[]>([]);
-  const [characterLoading, setCharacterLoading] = useState(true);
-  const [comicsData, setComicsData] = useState<comicItem[]>([]);
-  const [comicsLoading, setComicsLoading] = useState(true);
-  const [transitionClass, setTransitionClass] = useState(false);
-  const [loadingPercentage, setLoadingPercentage] = useState(0);
-  const router = useRouter();
+  const [characterData, setCharacterData] = useState<characterItem[]>([])
+  const [characterLoading, setCharacterLoading] = useState(true)
+  const [comicsData, setComicsData] = useState<comicItem[]>([])
+  const [comicsLoading, setComicsLoading] = useState(true)
+  const [transitionClass, setTransitionClass] = useState(false)
+  const [loadingPercentage, setLoadingPercentage] = useState(0)
+  const router = useRouter()
 
   useEffect(() => {
     if (router.query.id) {
-      const id = Number(router.query.id);
-      getCharacterDetails(id);
-      getComics(id);
+      const id = Number(router.query.id)
+      getCharacterDetails(id)
+      getComics(id)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router]);
+  }, [router])
 
   useEffect(() => {
     if(!characterLoading || !comicsLoading) {
       setLoadingPercentage((percentage) => percentage + 50)
     }
-  }, [characterLoading, comicsLoading]);
+  }, [characterLoading, comicsLoading])
 
   useEffect(() => {
     if (loadingPercentage === 100) {
-      setTransitionClass(true);
+      setTransitionClass(true)
     }
-  }, [loadingPercentage]);
+  }, [loadingPercentage])
 
   const getCharacterDetails = (characterId: number) => {
     axios
     .get(`../api/getCharacters?id=${characterId}`)
     .then((response) => {
       const responseData = response.data.data;
-      const item: SetStateAction<characterItem[]> = [];
+      const item: SetStateAction<characterItem[]> = []
 
       if (!responseData) {
         router.push('/')
@@ -57,11 +57,11 @@ export default function CharacterDetails() {
               `${data.thumbnail.path}.${data.thumbnail.extension}`,
               data.description,
             )
-          );
+          )
         })
 
-        setCharacterData(item);
-        setCharacterLoading(false);
+        setCharacterData(item)
+        setCharacterLoading(false)
       }
     })
   }
@@ -71,7 +71,7 @@ export default function CharacterDetails() {
     .get(`../api/getComics?id=${characterId}`)
     .then((response) => {
       const responseData = response.data.data;
-      const items: SetStateAction<comicItem[]> = [];
+      const items: SetStateAction<comicItem[]> = []
 
       responseData.map((data: comicApiDataItem) => {
         items.push(
@@ -83,8 +83,8 @@ export default function CharacterDetails() {
         );
       });
 
-      setComicsData(items);
-      setComicsLoading(false);
+      setComicsData(items)
+      setComicsLoading(false)
     })
   }
 
@@ -110,7 +110,7 @@ export default function CharacterDetails() {
                 <div className="details__character-header">
                   <Image
                     className="details__character-image"
-                    src={`${item.thumbnail}`}
+                    src={item.thumbnail}
                     alt={item.name}
                     width={190}
                     height={190}
@@ -157,7 +157,7 @@ export default function CharacterDetails() {
                     >
                       <Image
                         className="details__comics-image"
-                        src={`${item.thumbnail}`}
+                        src={item.thumbnail}
                         alt={item.title}
                         width={150}
                         height={190}

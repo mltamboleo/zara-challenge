@@ -1,15 +1,15 @@
-import { useContext } from 'react';
-import { FavsContext } from '../../../app/Context';
-import type { favButtonProps } from '../../../app/types';
-import Image from "next/image";
+import { useContext } from 'react'
+import { FavsContext } from '../../../app/Context'
+import type { favButtonProps } from '../../../app/types'
+import Image from "next/image"
 
 import './styles.scss';
 
 export default function FavButton({ className, characterId }: favButtonProps) {
-  const { favs, setFavs } = useContext(FavsContext);
+  const { favs, setFavs } = useContext(FavsContext)
 
   const updateFavs = () => {
-    isFavCharacter() ? RemoveFav() : addFav();
+    isFavCharacter() ? RemoveFav() : addFav()
   }
 
   const addFav = () => {
@@ -18,7 +18,7 @@ export default function FavButton({ className, characterId }: favButtonProps) {
 
   const RemoveFav = () => {
     const characterIdIndex = favs.indexOf(characterId)
-    favs.splice(characterIdIndex, 1);
+    favs.splice(characterIdIndex, 1)
     setFavs([...favs])
   }
 

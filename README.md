@@ -2,7 +2,7 @@
 
 Proyecto [Next.js](https://nextjs.org/) creado a través de [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Aplicación React en TypeScript que muestra un listado inicial filtrable por texto con 50 personajes de Marvel y que permiten el acceso a su página de detalle con más información relevante (en caso de estar disponible).
+Aplicación responsive React en TypeScript que muestra un listado inicial filtrable por texto con 50 personajes de Marvel y que permiten el acceso a su página de detalle con más información relevante (en caso de estar disponible).
 
 Desde el listado o desde el detalle se puede asignar cada personaje a "Favoritos".
 
@@ -140,7 +140,7 @@ src/app/pages/api/
 Desde aquí se hacen las llamadas a la API de Marvel para obtener la información requerida en las vistas (Personajes y Comics relacionados).
 Esta carpeta 'api' y sus archivos son accesibles por ruta desde los componentes y páginas (ejemplo):
 
-api/getCharacters?limit=${limit}
+`api/getCharacters?limit=${limit}`
 
 ```bash
 src/app/pages/details/

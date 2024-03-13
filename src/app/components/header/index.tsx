@@ -1,20 +1,20 @@
-import { useContext } from 'react';
-import { FavsContext } from '../../../app/Context';
-import Image from "next/image";
-import { useRouter } from 'next/router';
+import { useContext } from 'react'
+import { useRouter } from 'next/router'
+import { FavsContext } from '../../../app/Context'
+import Image from "next/image"
+import Link from 'next/link'
 
-import "./styles.scss";
-import Link from 'next/link';
+import "./styles.scss"
 
 export default function Header() {
-  const { favs, setFavsFilter } = useContext(FavsContext);
+  const { favs, setFavsFilter } = useContext(FavsContext)
 
-  const router = useRouter();
+  const router = useRouter()
 
   const goToHomePage = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, favsFilterValue: boolean) => {
-    e.preventDefault();
-    setFavsFilter(favsFilterValue);
-    router.push("/");
+    e.preventDefault()
+    setFavsFilter(favsFilterValue)
+    router.push("/")
   }
 
   return (
