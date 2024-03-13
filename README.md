@@ -158,7 +158,7 @@ Archivo en la raíz del proyecto que almacena las claves para leer la API de Mar
 - Listado de personajes.
 - Detalle.
 
-En base a las instrucciones dadas para crear el proyecto, se ha considerado a 'Favoritos' como un filtro de la vista 'Listado de personajes', de manera que las búsquedas por texto establecidas en ese momento determinarán también su contenido. Estos favoritos asignados solamente persistirán entre las vistas, pero no serán permanentes, de manera que al refrescar la página se reinciará su valor a 0.
+En base a las instrucciones dadas para crear el proyecto, se ha considerado a 'Favoritos' como un filtro de la vista 'Listado de personajes', de manera que las búsquedas por texto establecidas en ese momento determinarán también su contenido. Estos favoritos asignados solamente persistirán entre las vistas, pero no serán permanentes, por lo que al refrescar la página se reinciará su valor a 0.
 
 2) La búsqueda por texto se ha implementado por código, ya que la API sólo permite buscar personajes cuyo nombre empiece por cierto texto, pero no que lo contentga.
 
@@ -173,6 +173,6 @@ http://localhost:3000/details/123456
 
 4) La ordenación cronológica de los comics se hace a través de la API con el parámetro 'orderBy=onsaleDate'.
 
-5) Se han establecido fondos de color neutro y skeletons animados para las imágenes en caso de que tarden en cargar. También se ha utilizado el componente <Image> de Next JS para gestionar automáticamente la carga "lazy" de las imágenes.
+5) Se han establecido fondos de color neutro y skeletons animados para las imágenes en caso que tarden en cargar. También se ha utilizado el componente `<Image>` de Next JS para gestionar automáticamente la carga "lazy" de las imágenes.
 
 6) El efecto 'hover' con el rellenado en rojo y el cambio de color del icono de favoritos en las miniaturas del listado principal se aplican solamente para la versión Desktop (a partir de 1500px de anchura).
