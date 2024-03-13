@@ -8,6 +8,18 @@ Desde el listado o desde el detalle se puede asignar cada personaje a "Favoritos
 
 Para los estilos CSS se ha seguido la metodología BEM (http://getbem.com/).
 
+## Instalación
+
+1) Clonar repositorio en carpeta (marvel)
+```bash
+git clone git@github.com:mltamboleo/zara-challenge.git marvel
+```
+
+2) Desde la carpeta 'marvel' ejecutar el comando de instalación 
+```bash
+npm i
+```
+
 ## Compilación
 
 Desarrollo:
