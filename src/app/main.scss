@@ -1,0 +1,134 @@
+/* COLORS */
+$black: #000000;
+$white: #FFFFFF;
+$gray: #333333;
+$medium-gray: #AAAAAA;
+$light-gray: #D9D9D9;
+$marvel-red: #EC1D24;
+
+/* LAYOUT */
+$grid-unit: 8px;
+$header-height: 84px;
+$icon-small-size: 12px;
+$icon-medium-size: 24px;
+
+/* FONT */
+$font-family: 'Roboto Condensed';
+$small-font-size: 12px;
+$medium-font-size: 14px;
+$default-font-size: 16px;
+$large-font-size: 24px;
+$extra-large-font-size: 32px;
+
+/* CSS VARS */
+:root {
+  --page-bg: #{$white};
+
+  --header-height: #{$header-height};
+  --header-bg: #{$black};
+  --header-text: #{$white};
+  --header-font-size: #{$default-font-size};
+  --header-border-color: #{$gray};
+
+  --favs-header-font-size: #{$large-font-size};
+  --search-results-label-font-size: #{$small-font-size};
+  --input-placeholder: #{$medium-gray};
+  --input-border-color: #{$black};
+  --home-search-input-font-size: #{$default-font-size};
+
+  --character-link-bg: #{$light-gray};
+  --character-name-border: #{$marvel-red};
+  --character-name-bg: #{$black};
+  --character-name-hover-bg: #{$marvel-red};
+  --character-name-text: #{$white};
+  --character-name-font-size: #{$medium-font-size};
+
+  --character-detail-max-width-desktop: #{$grid-unit * 120};
+  --character-detail-info-image-size-tablet: #{$grid-unit * 34.75};
+  --character-detail-info-image-size-desktop: #{$grid-unit * 40};
+  --character-detail-info-bg: #{$black};
+  --character-detail-info-text: #{$white};
+  --character-detail-info-name-font-size: #{$extra-large-font-size};
+  --character-detail-info-description-font-size: #{$default-font-size};
+  --character-detail-comics-title-font-size: #{$default-font-size};
+  --character-detail-comics-image-bg: #{$light-gray};
+  --character-detail-comics-carousel-scrollbar-size: #{$grid-unit / 2};
+  --character-detail-comics-carousel-scrollbar-color: #{$marvel-red};
+  --character-detail-comics-carousel-scrollbar-bg: #{$light-gray};
+
+  --fav-button-small-size: #{$icon-small-size};
+  --fav-button-medium-size: #{$icon-medium-size};
+
+  --bg-cut-small-size: #{$icon-small-size};
+  --bg-cut-medium-size: #{$icon-medium-size};
+
+  --grid-unit: #{$grid-unit};
+  --grid-unit-x2: #{$grid-unit * 2};
+  --grid-unit-x3: #{$grid-unit * 3};
+  --grid-unit-x4: #{$grid-unit * 4};
+  --grid-unit-x5: #{$grid-unit * 5};
+  --grid-unit-x7: #{$grid-unit * 7};
+}
+
+/* STYLES */
+body {
+  background-color: var(--page-bg);
+  font-family: $font-family;
+  margin: 0;
+}
+
+input {
+  font-family: $font-family;
+}
+
+.content {
+  padding-top: var(--header-height);
+}
+
+.loading-bar {
+  background-color: $marvel-red;
+  height: $grid-unit;
+  transition: all .5s, opacity 1s;
+  position: fixed;
+  top: var(--header-height);
+  opacity: 1;
+  z-index: 1;
+
+  &--fade-out {
+    opacity: 0;
+  }
+}
+
+.loading-spinner {
+  width: 50%;
+  height: auto;
+}
+
+/* ANIMATIONS */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn .5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  position: relative;
+  animation: slideIn .5s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    top: $header-height * -1;
+  }
+  to {
+    top: 0px;
+  }
+}

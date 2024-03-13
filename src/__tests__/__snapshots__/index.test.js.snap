@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Page Renders Home 1`] = `
+<div>
+  <div
+    class="home"
+  >
+    <div
+      class="home__favs-header home__favs-header--hidden"
+    >
+      <h1
+        class="home__favs-header-text"
+      >
+        FAVORITES
+      </h1>
+    </div>
+    <div
+      class="home__search"
+    >
+      <input
+        class="home__search-input"
+        placeholder="SEARCH A CHARACTER..."
+        type="search"
+      />
+      <p
+        class="home__search-results-label"
+      >
+        0
+         
+        result 
+      </p>
+    </div>
+    <div
+      class="home__loading"
+    >
+      Loading...
+    </div>
+  </div>
+</div>
+`;

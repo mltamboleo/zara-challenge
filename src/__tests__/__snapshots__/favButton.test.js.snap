@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fav Button Component Renders Fav Button 1`] = `
+<div>
+  <button
+    class="fav-button undefined"
+  >
+    <img
+      alt="Add to favorites"
+      data-nimg="1"
+      decoding="async"
+      height="12"
+      loading="lazy"
+      src="/fav-unselected.svg"
+      style="color: transparent;"
+      width="12"
+    />
+  </button>
+</div>
+`;

@@ -1,0 +1,202 @@
+.details {
+  overflow-x: hidden;
+  padding-bottom: var(--grid-unit-x2);
+
+  &__loading {
+    padding: var(--grid-unit-x2);
+  }
+
+  &__character {
+    position: relative;
+    background-color: var(--character-detail-info-bg);
+  }
+
+  &__character-bg-cut {
+    width: var(--bg-cut-medium-size);
+    height: var(--bg-cut-medium-size);
+    position: absolute;
+    right: -1px;
+    bottom: -2px;
+  }
+
+  &__character-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: left;
+  }
+
+  &__character-info {
+    background-color: var(--character-detail-info-bg);
+    color: var(--character-detail-info-text);
+    padding: var(--grid-unit-x3) var(--grid-unit-x2) var(--grid-unit-x2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__character-info-header {
+    margin-bottom: var(--grid-unit-x3);
+    display: flex;
+  }
+
+  &__character-name {
+    margin: 0;
+    font-size: var(--character-detail-info-name-font-size);
+    text-transform: uppercase;
+    flex: 1;
+  }
+
+  &__character-description {
+    margin-bottom: var(--grid-unit-x3);
+    font-size: var(--character-detail-info-description-font-size);
+  }
+
+  &__character-fav-button {
+    padding: 0;
+    height: var(--fav-button-medium-size);
+    position: relative;
+    top: var(--grid-unit);
+
+    & img {
+      width: var(--fav-button-medium-size);
+      height: var(--fav-button-medium-size);
+    }
+  }
+
+  &__comics-header {
+    margin: var(--grid-unit-x4) var(--grid-unit-x2) var(--grid-unit-x2);
+  }
+
+  &__comics-carousel {
+    overflow-x: scroll;
+  }
+
+  &__comics-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__comics-item {
+    width: 40%;
+    padding: 0 var(--grid-unit-x2);
+    flex-shrink: 0;
+
+    & + .details__comics-item {
+      padding: 0 var(--grid-unit-x2) 0 0;
+    }
+  }
+
+  &__comics-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    object-position: left;
+    background-color: var(--character-detail-comics-image-bg)
+  }
+
+  &__comics-title {
+    font-weight: 500;
+    font-size: var(--character-detail-comics-title-font-size);
+    margin-top: var(--grid-unit);
+    margin-bottom: var(--grid-unit-x3);
+  }
+
+  /* TABLET */
+  @media (min-width: 768px) {
+    padding-bottom: var(--grid-unit-x5);
+
+    &__character {
+      display: flex;
+    }
+
+    &__character-header {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+    }
+
+    &__character-info {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 var(--grid-unit-x5);
+    }
+
+    &__character-image {
+      width: var(--character-detail-info-image-size-tablet);
+      height: var(--character-detail-info-image-size-tablet);
+    }
+
+    &__comics-header {
+      margin-left: var(--grid-unit-x5);
+    }
+
+    &__comics-item {
+      padding-left: var(--grid-unit-x5);
+      width: 21%;
+
+      &:last-child {
+        padding-right: var(--grid-unit-x5);
+      }
+    }
+  }
+
+  /* DESKTOP */
+  @media (min-width: 1500px) {
+    padding-bottom: var(--grid-unit-x5);
+
+    &__character-header {
+      max-width: var(--character-detail-max-width-desktop);
+      margin: auto;
+    }
+
+    &__character-image {
+      width: var(--character-detail-info-image-size-desktop);
+      height: var(--character-detail-info-image-size-desktop);
+    }
+
+    &__character-info {
+      padding-right: 0;
+    }
+
+    &__comics-header {
+      margin-left: 0;
+    }
+
+    &__comics {
+      max-width: var(--character-detail-max-width-desktop);
+      margin: auto;
+    }
+
+    &__comics-carousel {
+      &::-webkit-scrollbar {
+        height: 4px;
+        width: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--character-detail-comics-carousel-scrollbar-color);
+        cursor: grab;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--character-detail-comics-carousel-scrollbar-bg);
+      }
+    }
+
+    &__comics-item {
+      padding-left: 0;
+      width: 18.5%;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}

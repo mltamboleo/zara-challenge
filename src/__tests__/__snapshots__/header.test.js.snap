@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component Renders Header 1`] = `
+<div>
+  <div
+    class="header"
+  >
+    <a
+      class="header__logo-button"
+      href="/"
+    >
+      <img
+        alt="Home Page"
+        class="header__logo"
+        data-nimg="1"
+        decoding="async"
+        fetchpriority="high"
+        height="52"
+        src="/marvel-logo.svg"
+        style="color: transparent;"
+        width="130"
+      />
+    </a>
+    <a
+      class="header__fav-button"
+      href="/"
+      rel="nofollow"
+    >
+      <img
+        alt="Home Page - Favorites"
+        data-nimg="1"
+        decoding="async"
+        height="24"
+        loading="lazy"
+        src="/fav-default.svg"
+        style="color: transparent;"
+        width="24"
+      />
+      <span
+        class="header__fav-number"
+      >
+        0
+      </span>
+    </a>
+  </div>
+</div>
+`;
