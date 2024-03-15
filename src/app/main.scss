@@ -11,6 +11,13 @@ $grid-unit: 8px;
 $header-height: 84px;
 $icon-small-size: 12px;
 $icon-medium-size: 24px;
+$characters-list-columns-mobile: 2;
+$characters-list-columns-tablet: 5;
+$characters-list-columns-desktop: 7;
+
+@function characters-list-columns-width($n) {
+  @return #{ (100 / $n) + "%" }
+}
 
 /* FONT */
 $font-family: 'Roboto Condensed';
@@ -36,6 +43,12 @@ $extra-large-font-size: 32px;
   --input-border-color: #{$black};
   --home-search-input-font-size: #{$default-font-size};
 
+  --characters-list-columns-mobile: #{$characters-list-columns-mobile};
+  --characters-list-columns-width-mobile: #{characters-list-columns-width($characters-list-columns-mobile)};
+  --characters-list-columns-tablet: #{$characters-list-columns-tablet};
+  --characters-list-columns-width-tablet: #{characters-list-columns-width($characters-list-columns-tablet)};
+  --characters-list-columns-desktop: #{$characters-list-columns-desktop};
+  --characters-list-columns-width-desktop: #{characters-list-columns-width($characters-list-columns-desktop)};
   --character-link-bg: #{$light-gray};
   --character-name-border: #{$marvel-red};
   --character-name-bg: #{$black};
