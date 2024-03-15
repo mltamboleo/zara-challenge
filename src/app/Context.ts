@@ -1,7 +1,7 @@
 import { createContext } from 'react'
-import type { favsContextType } from './types'
+import type { FavsContextType } from './types'
 
-export const FavsContext = createContext<favsContextType>({
+export const FavsContext = createContext<FavsContextType>({
   favs: [],
   setFavs() {},
   favsFilter: false,
