@@ -1,11 +1,11 @@
 import { useContext } from 'react'
 import { FavsContext } from '../../../app/Context'
-import type { favButtonProps } from '../../../app/types'
+import type { FavButtonProps } from '../../../app/types'
 import Image from "next/image"
 
 import './styles.scss';
 
-export default function FavButton({ className, characterId }: favButtonProps) {
+export default function FavButton({ className, characterId }: FavButtonProps) {
   const { favs, setFavs } = useContext(FavsContext)
 
   const updateFavs = () => {

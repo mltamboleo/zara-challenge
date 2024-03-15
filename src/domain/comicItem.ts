@@ -1,4 +1,4 @@
-export class comicItem {
+export class ComicItem {
   id: number;
   title: string;
   thumbnail: string;

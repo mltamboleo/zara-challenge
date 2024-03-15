@@ -1,4 +1,4 @@
-export class characterItem {
+export class CharacterItem {
   id: number;
   name: string;
   thumbnail: string;
@@ -7,7 +7,7 @@ export class characterItem {
   constructor (id:number, name: string, thumbnail: string, description?: string) {
     this.id = id;
     this.name = name;
-    this.description = description;
     this.thumbnail = thumbnail;
+    this.description = description;
   }
 }

@@ -1,11 +1,11 @@
-export type favsContextType = {
+export type FavsContextType = {
   favs: number[],
   setFavs: (value: number[]) => void,
   favsFilter: boolean,
   setFavsFilter: (value: boolean) => void,
 }
 
-type visualApiDataItem = {
+type VisualApiDataItem = {
   id: number;
   thumbnail: {
     path: string;
@@ -13,16 +13,16 @@ type visualApiDataItem = {
   };
 }
 
-export type characterApiDataItem = visualApiDataItem & {
+export type CharacterApiDataItem = VisualApiDataItem & {
   name: string;
   description: string;
 }
 
-export type comicApiDataItem = visualApiDataItem & {
+export type ComicApiDataItem = VisualApiDataItem & {
   title: string;
 }
 
-export type favButtonProps = {
+export type FavButtonProps = {
   className: string,
   characterId: number
 }

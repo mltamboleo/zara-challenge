@@ -2,17 +2,17 @@ import axios from 'axios'
 import { useState, useEffect, SetStateAction } from 'react'
 import { useRouter } from 'next/router'
 import Image from "next/image"
-import { characterApiDataItem, comicApiDataItem } from '../../app/types'
-import { characterItem } from '../../domain/characterItem'
-import { comicItem } from '../../domain/comicItem'
+import { CharacterApiDataItem, ComicApiDataItem } from '../../app/types'
+import { CharacterItem } from '../../domain/characterItem'
+import { ComicItem } from '../../domain/comicItem'
 import FavButton from '../../app/components/favButton/index'
 
 import '../../app/styles/details.scss'
 
 export default function CharacterDetails() {
-  const [characterData, setCharacterData] = useState<characterItem[]>([])
+  const [characterData, setCharacterData] = useState<CharacterItem[]>([])
   const [characterLoading, setCharacterLoading] = useState(true)
-  const [comicsData, setComicsData] = useState<comicItem[]>([])
+  const [comicsData, setComicsData] = useState<ComicItem[]>([])
   const [comicsLoading, setComicsLoading] = useState(true)
   const [transitionClass, setTransitionClass] = useState(false)
   const [loadingPercentage, setLoadingPercentage] = useState(0)
@@ -44,14 +44,14 @@ export default function CharacterDetails() {
     .get(`../api/getCharacters?id=${characterId}`)
     .then((response) => {
       const responseData = response.data.data;
-      const item: SetStateAction<characterItem[]> = []
+      const item: SetStateAction<CharacterItem[]> = []
 
       if (!responseData) {
         router.push('/')
       } else {
-        responseData.map((data: characterApiDataItem) => {
+        responseData.map((data: CharacterApiDataItem) => {
           item.push(
-            new characterItem(
+            new CharacterItem(
               data.id,
               data.name,
               `${data.thumbnail.path}.${data.thumbnail.extension}`,
@@ -71,11 +71,11 @@ export default function CharacterDetails() {
     .get(`../api/getComics?id=${characterId}`)
     .then((response) => {
       const responseData = response.data.data;
-      const items: SetStateAction<comicItem[]> = []
+      const items: SetStateAction<ComicItem[]> = []
 
-      responseData.map((data: comicApiDataItem) => {
+      responseData.map((data: ComicApiDataItem) => {
         items.push(
-          new comicItem(
+          new ComicItem(
             data.id,
             data.title,
             `${data.thumbnail.path}.${data.thumbnail.extension}`,

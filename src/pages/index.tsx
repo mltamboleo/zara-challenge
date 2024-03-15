@@ -4,14 +4,14 @@ import Image from "next/image"
 import Link from 'next/link'
 import { FavsContext } from '../app/Context'
 import FavButton from '../app/components/favButton/index'
-import { characterApiDataItem } from '../app/types'
-import { characterItem } from '../domain/characterItem'
+import { CharacterApiDataItem } from '../app/types'
+import { CharacterItem } from '../domain/characterItem'
 
 import '../app/styles/index.scss'
 
 export default function CharactersList() {
-  const [data, setData] = useState<characterItem[]>([])
-  const [allData, setAllData] = useState<characterItem[]>([])
+  const [data, setData] = useState<CharacterItem[]>([])
+  const [allData, setAllData] = useState<CharacterItem[]>([])
   const [loading, setLoading] = useState(true);
   const [searchText, setSearchText] = useState("")
   const limit = 50
@@ -33,11 +33,11 @@ export default function CharactersList() {
     .get(`api/getCharacters?limit=${limit}`)
     .then((response) => {
       const responseData = response.data.data;
-      const items: SetStateAction<characterItem[]> = []
+      const items: SetStateAction<CharacterItem[]> = []
 
-      responseData.map((data: characterApiDataItem) => {
+      responseData.map((data: CharacterApiDataItem) => {
         items.push(
-          new characterItem(
+          new CharacterItem(
             data.id,
             data.name,
             `${data.thumbnail.path}.${data.thumbnail.extension}`
@@ -52,19 +52,19 @@ export default function CharactersList() {
   }
 
   const filterCharactersList = () => {
-    const filteredData: characterItem[] = allData.filter((character) => character.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1)
+    const filteredData: CharacterItem[] = allData.filter((character) => character.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1)
 
     setData(filteredData)
     setResults(filteredData.length)
   }
 
   const filterFavoritesList = () => {
-    const filteredData: characterItem[] = []
+    const filteredData: CharacterItem[] = []
 
     for (const index in favs) {
-      let favCharacter: characterItem | undefined
+      let favCharacter: CharacterItem | undefined
 
-      favCharacter = allData.find((character: characterItem) => (character.id === favs[index]))
+      favCharacter = allData.find((character: CharacterItem) => (character.id === favs[index]))
       if (favCharacter) {
         if (searchText > "" && !(favCharacter.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1)) {
           continue;
