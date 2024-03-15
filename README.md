@@ -82,7 +82,7 @@ Almacena las variables de estado comunes en la aplicación para gestionar los fa
 ```bash
 main.scss
 ```
-Contiene las variables SAAS y CSS en las que se basa el design system de la aplicación a partir del Figma proporcionado.
+Contiene las variables SAAS y CSS en las que se basa el design system de la aplicación a partir del Figma proporcionado, incluyendo la configuración para establecer el número de columnas de la página principal dependiendo del viewport.
 Además define algunos estilos y animaciones comunes para toda la web.
 
 ```bash
